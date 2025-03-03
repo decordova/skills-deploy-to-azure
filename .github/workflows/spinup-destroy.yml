@@ -9,6 +9,7 @@ env:
   AZURE_RESOURCE_GROUP: cd-with-actions
   AZURE_APP_PLAN: actions-ttt-deployment
   AZURE_LOCATION: '"Canada Central"'
+
   ###############################################
   ### Replace <username> with GitHub username ###
   ###############################################
@@ -36,6 +37,7 @@ jobs:
         if: success()
         run: |
           az appservice plan create --resource-group ${{env.AZURE_RESOURCE_GROUP}} --name ${{env.AZURE_APP_PLAN}} --is-linux --sku B1 --subscription ${{secrets.AZURE_SUBSCRIPTION_ID}}
+
 
       - name: Create webapp resource
         if: success()
